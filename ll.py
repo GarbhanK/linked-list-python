@@ -9,7 +9,6 @@ class LinkedList:
                 node.next = Node(data=elem)
                 node = node.next
 
-
     def __repr__(self):
         node = self.head
         nodes = []
@@ -24,6 +23,11 @@ class LinkedList:
         while node is not None:
             yield node
             node = node.next
+
+    def add_first(self, node):
+        node.next = self.head
+        self.head = node
+
 
 class Node:
     def __init__(self, data):
@@ -56,4 +60,9 @@ if __name__ == "__main__":
     for node in llist:
         print(node)
 
+    llist = LinkedList()
+    llist.add_first(Node("b"))
+    print(llist)
+    llist.add_first(Node("a"))
+    print(llist)
 
